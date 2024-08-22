@@ -1,9 +1,16 @@
+"use client"
+
 import Image from "next/image";
-import logoImg from "@/assets/devmemory_logo2.png";
 import restartImg from "@/assets/svgs/restart.svg";
+import logoImg from "@/assets/devmemory_logo2.png";
+
 import { InfoItem } from "@/components/info-item";
+import { Button } from "@/components/button";
 
 export default function Home() {
+  const handleRestartBtn = () => {
+    console.log('pipi')
+  }
   return (
     <main className="min-h-screen w-full max-w-3xl m-auto">
       <div className="flex flex-col md:flex-row p-10 gap-10">
@@ -16,14 +23,8 @@ export default function Home() {
 
             <InfoItem label="Moves" info="0" />
           </div>
-          <button
-            className="w-full py-2 px-3 bg-lime-500 hover:bg-orange-500 transition-all rounded-md flex items-center"
-          >
-            <Image className="" src={restartImg} alt="logo" width={20} height={20} />
-            <span className="flex-1 border-l ml-3 pl-3">
-              Start
-            </span>
-          </button>
+
+          <Button label="Start" icon={restartImg} onClick={handleRestartBtn} />
         </div>
         <div className="grid grid-cols-4 flex-1">
           <div>1</div>
