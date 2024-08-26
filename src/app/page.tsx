@@ -1,14 +1,14 @@
 "use client"
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import restartImg from "@/assets/svgs/restart.svg";
 import logoImg from "@/assets/devmemory_logo2.png";
-
 import { InfoItem } from "@/components/info-item";
 import { Button } from "@/components/button";
-import { items } from "@/data/items";
-import { useEffect, useState } from "react";
+import { GridItem } from "@/components/grid-item";
 import { GridItemType } from "@/types/GridItemType";
+import { items } from "@/data/items";
 
 export default function Home() {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
@@ -54,8 +54,8 @@ export default function Home() {
     setIsPlaying(true);
   }
 
-  const handleRestartBtn = () => {
-    console.log('pipi')
+  const handleItemClicked = (index: number) => {
+
   }
   return (
     <main className="min-h-screen w-full max-w-3xl m-auto">
@@ -70,11 +70,11 @@ export default function Home() {
             <InfoItem label="Moves" info="0" />
           </div>
 
-          <Button label="Start" icon={restartImg} onClick={handleRestartBtn} />
+          <Button label="Start" icon={restartImg} onClick={resetAndCreateGrid} />
         </div>
         <div className="grid grid-cols-4 gap-3 w-full md:w-96">
           {gridItems.map((item, index) => (
-            <div className="bg-red-950 rounded-lg" key={index}>{item.shown ? "t": 'f'}</div>
+            <GridItem key={index} item={item} onClick={() => handleItemClicked(index)} />
           ))}
         </div>
       </div>
