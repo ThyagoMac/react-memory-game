@@ -13,7 +13,7 @@ export const GridItem = ({item, onClick}: Props) => {
     <div
       className={`
         ${item.isSelected || item.shown ? 'bg-gray-600' : 'bg-red-950 hover:bg-orange-500 transition-all'}
-        rounded-lg cursor-pointer flex items-center justify-center
+        rounded-lg cursor-pointer flex items-center justify-center h-24
       `}
 
       onClick={onClick} 
